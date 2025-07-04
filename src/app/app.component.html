@@ -10,9 +10,15 @@
 
 <main class="main">
   <div class="content">
-    <div class="left-side">      
-      <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+    <div class="left-side">            
+      <input placeholder="Ingresar tarea"  [(ngModel)]="tarea"  class="input"/> <button (click)="agregarTarea(tarea)" class="btn">Agregar</button> &nbsp;<button (click)="tareas = []" class="btn">Limpiar Tareas</button>
+      <ul>
+        <li *ngFor="let tarea of tareas; let i = index">
+          <span class="id">{{ tarea.id }}</span> &nbsp;
+          <span [class.completada]="tarea.completada">{{ tarea.nombre }}</span>&nbsp;          
+          <button (click)="eliminarTarea(i)" class="btn-eliminar">Eliminar</button>
+        </li>
+      </ul>
     </div>
 
   </div>
