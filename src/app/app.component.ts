@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ItemsComponent } from './items/items.component';
+import { TareaComponent } from './tarea/tarea.component';
 
-interface Tarea {
+interface Items {
   id: number;
   nombre: string;
   completada: boolean;
@@ -11,26 +13,14 @@ interface Tarea {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, FormsModule],
+  imports: [RouterOutlet, CommonModule, FormsModule, TareaComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  tarea = 'Todo List';
-  tareas: Tarea[] = [];
-
-  agregarTarea(nombre: string): void {
-    if (nombre.trim()) {
-      const nuevaTarea: Tarea = {
-        id: this.tareas.length + 1,
-        nombre: nombre.trim(),
-        completada: false
-      };
-      this.tareas.push(nuevaTarea);
-    }
-  }
-  eliminarTarea(id: number): void {
-    this.tareas = this.tareas.filter(tarea => tarea.id !== id);
-  }
+  
+  items: Items[] = [];
+  
+ 
   
 }
