@@ -1,7 +1,6 @@
+
 <ul>
-        <li *ngFor="let tarea of items; let i = index">
-          <span class="id">{{ tarea.id }}</span> &nbsp;
-          <span [class.completada]="tarea.completada">{{ tarea.nombre }}</span>&nbsp;          
-          <button (click)="eliminarTarea(i)" class="btn-eliminar">Eliminar</button>
-        </li>
-      </ul>
+  <li *ngFor="let item of items">
+    {{ item.id }}&nbsp;{{ item.nombre }}&nbsp;&nbsp; <button (click)="eliminarTarea(item.id)" class="btn">Eliminar</button>
+  </li>
+</ul>

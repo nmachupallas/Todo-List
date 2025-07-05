@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Items } from '../modelos/item'; // Importa la interfaz
@@ -9,7 +9,7 @@ import { Items } from '../modelos/item'; // Importa la interfaz
   styleUrl: './items.component.css'
 })
 export class ItemsComponent {
-items: Items[] = [];
+@Input() items: Items[] = [];
 
  eliminarTarea(id: number): void {
     this.items = this.items.filter(tarea => tarea.id !== id);
